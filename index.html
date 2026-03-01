@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BracketBetLab | NCAA Basketball Picks & Analytics</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fa;
+      color: #222;
+    }
+
+    header {
+      background: #003A8F; /* NCAA Blue */
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 42px;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h2 {
+      color: #C8102E; /* NCAA Red */
+      border-bottom: 3px solid #C8102E;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .picks-box {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .pick {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .chart-box {
+      background: white;
+      margin-top: 30px;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    footer {
+      background: #003A8F;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>BracketBetLab</h1>
+  <p>Smart NCAA Basketball Picks • Data-Driven Edges • March Dominance</p>
+</header>
+
+<div class="container">
+
+  <h2>🔥 Today’s Written Picks</h2>
+
+  <div class="picks-box">
+    <div class="pick">
+      <strong>Arizona -4.5</strong><br>
+      Arizona’s tempo advantage and offensive rebounding edge create consistent second-chance points.
+      The model projects a **6.8-point win**.
+    </div>
+
+    <div class="pick">
+      <strong>Houston ML</strong><br>
+      Houston’s defensive efficiency and turnover rate suppress transition scoring.
+      Win probability: **72%**.
+    </div>
+
+    <div class="pick">
+      <strong>Over 147.5 (Duke vs Kansas)</strong><br>
+      Both teams rank top-20 in adjusted pace. Projection: **151.2 total points**.
+    </div>
+  </div>
+
+  <h2>📊 Model Projections</h2>
+
+  <div class="chart-box">
+    <canvas id="winProbChart"></canvas>
+  </div>
+
+  <div class="chart-box">
+    <canvas id="marginChart"></canvas>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 BracketBetLab.com • NCAA Picks & Analytics
+</footer>
+
+<script>
+  const winCtx = document.getElementById('winProbChart').getContext('2d');
+  new Chart(winCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Arizona', 'Houston', 'Duke'],
+      datasets: [{
+        label: 'Win Probability (%)',
+        data: [68, 72, 55],
+        backgroundColor: '#003A8F'
+      }]
+    },
+    options: {
+      scales: {
+        y: { beginAtZero: true, max: 100 }
+      }
+    }
+  });
+
+  const marginCtx = document.getElementById('marginChart').getContext('2d');
+  new Chart(marginCtx, {
+    type: 'line',
+    data: {
+      labels: ['Arizona', 'Houston', 'Duke'],
+      datasets: [{
+        label: 'Projected Margin',
+        data: [6.8, 5.4, 2.1],
+        borderColor: '#C8102E',
+        fill: false,
+        tension: 0.3
+      }]
+    }
+  });
+</script>
+
+</body>
+</html>
